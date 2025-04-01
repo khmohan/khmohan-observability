@@ -28,6 +28,9 @@ Start by cloning the repo to your local machine:
 ```bash
 git clone https://github.com/khmohan/khmohan-observability.git
 cd khmohan-observability
+
+
+
 2️⃣ Deploy the Monitoring Stack
 Next, deploy the full stack (Prometheus, Grafana, Alertmanager) using Kubernetes manifests:
 
@@ -35,6 +38,9 @@ bash
 Copy
 Edit
 kubectl apply -f manifests/
+
+
+
 3️⃣ Access the Grafana Dashboard
 To access the Grafana UI, run the following port-forward command:
 
@@ -47,6 +53,8 @@ Then, visit http://localhost:3000 in your browser.
 Username: admin
 Password: admin
 
+
+
 4️⃣ Verify Prometheus Targets
 To verify that Prometheus is scraping your API targets, run the following:
 
@@ -55,6 +63,10 @@ Copy
 Edit
 kubectl port-forward svc/prometheus 9090:9090 -n monitoring
 Then, open http://localhost:9090/targets to check if Prometheus is scraping your API.
+
+
+
+
 
 5️⃣ Test Alerts in Alertmanager
 To verify the Alertmanager configuration, run:
@@ -65,7 +77,11 @@ Edit
 kubectl port-forward svc/alertmanager 9093:9093 -n monitoring
 Then, open http://localhost:9093 and check for any active alerts.
 
-💡 Additional Resources:
+
+
+
+
+****💡 Additional Resources:
 
 Grafana Dashboards: Pre-configured dashboards are available for importing into Grafana.
 
@@ -73,15 +89,25 @@ Prometheus Metrics: Explore the collected metrics in real-time and ensure API he
 
 Alertmanager Setup: Check active alerts and monitor your system's health status.
 
+
+
+
 💬 Contribute & Improve:
 
 We welcome contributions to improve the observability stack! If you find bugs or have suggestions, feel free to fork the repository and create a pull request. Your contributions are highly appreciated!
+
+
+
 
 🔍 Final Notes:
 
 This repository has everything you need to get up and running with Prometheus, Grafana, and Alertmanager to monitor your REST API performance. It's easy to set up, flexible, and ready to be used for any microservices-based infrastructure.
 
 Stay ahead of the game with proactive monitoring and alerts! 🚀
+
+
+
+
 
 📚 Documentation & Resources:
 
@@ -93,29 +119,11 @@ Alertmanager Documentation
 
 Kubernetes Documentation
 
-📊 Badges & Stats: (You can add any relevant badges or stats here, like build status, etc.)
-
-🔮 Explore More!
-
-By leveraging Prometheus, Grafana, and Alertmanager, you can gain deeper insights into the health of your systems. These tools are industry-standard and can be adapted for any API or microservice-based infrastructure. 🚀
-
-vbnet
-Copy
-Edit
-
-Now you can copy and paste it as a whole markdown document. Let me know if you need further modifications!
 
 
 
 
 
-
-
-
-
-
-
-Search
 
 Reason
 
