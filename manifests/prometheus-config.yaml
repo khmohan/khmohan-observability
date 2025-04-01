@@ -1,8 +1,34 @@
-global:
-  scrape_interval: 15s  # How often Prometheus scrapes targets
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: prometheus-config
+  namespace: default
+data:
+  prometheus.yml: |
+    global:
+      scrape_interval: 15s  # How often Prometheus scrapes targets
 
-scrape_configs:
-  - job_name: "api-monitoring"
-    metrics_path: "/metrics"
-    static_configs:
-      - targets: ["your-api-service:8000"]
+    scrape_configs:
+      - job_name: "api-monitoring"
+        metrics_path: "/metrics"
+        static_configs:
+          - targets: ["your-api-service:8000"]
+
+    alerting:
+      alertmanagers:
+      - scheme: http
+        static_configs:
+        - targets:
+          - alertmanager.default.svc.cluster.local:9093
+
+    groups:
+    - name: example-alerts
+      rules:
+      - alert: HighCpuUsage
+        expr: avg(rate(container_cpu_usage_seconds_total{job="kubelet", cluster="", container!="", image!="", pod!="POD"}[1m])) by (instance) > 0.9
+        for: 5m
+        labels:
+          severity: critical
+        annotations:
+          summary: "High CPU usage detected on instance {{ $labels.instance }}"
+          description: "CPU usage is above 90% for more than 5 minutes."
