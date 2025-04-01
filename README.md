@@ -31,3 +31,15 @@ Start by cloning the repo to your local machine:
 git clone https://github.com/khmohan/khmohan-observability.git
 cd khmohan-observability
 
+
+
+---
+
+### **2️⃣ Deploy the Monitoring Stack**
+
+Next, deploy the full stack (Prometheus, Grafana, Alertmanager) using Kubernetes manifests:
+
+```bash
+kubectl apply -f manifests/
+
+
