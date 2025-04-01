@@ -30,6 +30,9 @@ git clone https://github.com/khmohan/khmohan-observability.git
 cd khmohan-observability
 
 
+
+
+
 2️⃣ Deploy the Monitoring Stack
 Next, deploy the full stack (Prometheus, Grafana, Alertmanager) using Kubernetes manifests:
 
@@ -37,6 +40,11 @@ bash
 Copy
 Edit
 kubectl apply -f manifests/
+
+
+
+
+
 3️⃣ Access the Prometheus Dashboard
 To access the Prometheus UI, run the following port-forward command:
 
@@ -45,6 +53,10 @@ Copy
 Edit
 kubectl port-forward svc/prometheus 9090:9090 -n monitoring
 Then, open http://localhost:9090 in your browser.
+
+
+
+
 
 4️⃣ Access the Grafana Dashboard
 To access the Grafana UI, run the following port-forward command:
@@ -59,6 +71,9 @@ Username: admin
 
 Password: admin
 
+
+
+
 5️⃣ Verify Prometheus Targets
 To verify that Prometheus is scraping your API targets, run the following:
 
@@ -67,6 +82,10 @@ Copy
 Edit
 kubectl port-forward svc/prometheus 9090:9090 -n monitoring
 Then, open http://localhost:9090/targets to check if Prometheus is scraping your API.
+
+
+
+
 
 6️⃣ Test Alerts in Alertmanager
 To verify the Alertmanager configuration, run:
@@ -77,6 +96,9 @@ Edit
 kubectl port-forward svc/alertmanager 9093:9093 -n monitoring
 Then, open http://localhost:9093 and check for any active alerts.
 
+
+
+
 💡 Additional Resources:
 
 Grafana Dashboards: Pre-configured dashboards are available for importing into Grafana.
@@ -85,13 +107,20 @@ Prometheus Metrics: Explore the collected metrics in real-time and ensure API he
 
 Alertmanager Setup: Check active alerts and monitor your system's health status.
 
+
+
 💬 Contribute & Improve:
 We welcome contributions to improve the observability stack! If you find bugs or have suggestions, feel free to fork the repository and create a pull request. Your contributions are highly appreciated!
+
+
 
 🔍 Final Notes:
 This repository has everything you need to get up and running with Prometheus, Grafana, and Alertmanager to monitor your REST API performance. It's easy to set up, flexible, and ready to be used for any microservices-based infrastructure.
 
 Stay ahead of the game with proactive monitoring and alerts! 🚀
+
+
+
 
 📚 Documentation & Resources:
 
